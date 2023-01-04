@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title></title>
+</head>
+<body>
+<div>
+  <table border="1">
+
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Surname</th>
+      <th>Age</th>
+      <th>email</th>
+      <th>Edit</th>
+      <th>Delete</th>
+
+    </tr>
+    <tr th:each="user : ${UsersAll}">
+      <td th:utext="${user.id}">...</td>
+      <td th:utext="${user.name}">...</td>
+      <td th:utext="${user.surname}">...</td>
+      <td th:utext="${user.age}">...</td>
+      <td th:utext="${user.email}">...</td>
+
+      <td>
+      <form th:action="@{users/edit/{id}(id=${user.getId()})}" th:object="${user}">
+        <button type="submit">Edit</button>
+      </form>
+      </td>
+
+      <td>
+      <form th:action="@{users/delete(id=${user.id})}" th:object="${user}">
+        <input type="hidden" name="id" th:value="${user.id}">
+        <button type="submit">Delete</button>
+      </form>
+      </td>
+    </tr>
+    <td>
+
+    </td>
+  </table>
+  <td>
+    <form th:action="@{users/add}">
+      <button type="submit">Add new user</button>
+    </form>
+  </td>
+</div>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Welcome</title>
+</head>
+<body>
+    <tr>
+        <th> Hello user!</th></br>
+        <th> This site can do 4 things</th></br>
+        <th> 1. Add users</th></br>
+        <th> 2. Edit users</th></br>
+        <th> 3. Delete users</th></br>
+        <th> 4. And the lust one, can shaw you all users</th></br>
+        <th> This site works only in english</th> </br>
+    </tr>
+
+    <br/>
+    <form th:action="@{/shawAllUsers}">
+        <button type="submit">Go to edit user's list</button>
+    </form>
+
+</body>
+</html>

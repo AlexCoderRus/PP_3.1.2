@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Add user</title>
+</head>
+<body>
+<h2>Add user</h2>
+<div>
+  <form th:action="@{/users/add}" th:object="${UserToAdd}" method="post">
+    <fieldset>
+      <legend>User's data</legend>
+      <p>
+        <label th:for="name">Name</label>
+        <input type="text" name="name" th:id="name" th:value="${UserToAdd.getName()}">
+      </p>
+      <p>
+        <label th:for="surname">Surname</label>
+        <input type="text" name="surname" th:id="surname" th:value="${UserToAdd.getSurname()}"><br/>
+
+      </p>
+      <p>
+        <label th:for="age">Age</label>
+        <input type="text" name="age" th:id="age" th:value="${UserToAdd.getAge()}">
+      </p>
+      <p>
+        <label th:for="email">Email</label>
+        <input type="text" name="email" th:id="email" th:value="${UserToAdd.getEmail()}"><br/>
+      </p>
+      <p>
+        <label th:for="password">Password</label>
+        <input type="text" name="password" th:id="password" th:value="${UserToAdd.getPassword()}"><br/>
+      </p>
+    </fieldset>
+    <button type="submit">Save user</button>
+  </form>
+  <br/>
+  <form th:action="@{/shawAllUsers}">
+    <button type="submit" class="btn btn-outline-danger">Back to users list</button>
+  </form>
+</div>
+</body>
+</html>
